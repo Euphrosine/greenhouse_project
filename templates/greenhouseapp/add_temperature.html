@@ -1,0 +1,135 @@
+{% extends 'base.html' %}
+
+{% block content%}
+<h3 style="text-align: center;">Greenhouse Monitoring system</h3><br><br>
+<div class="row">
+    <div class="col-xl-6 col-md-6 mb-4">
+        <div class="card">
+            <div class="card-header p-3 pt-2">
+                <div class="icon icon-lg icon-shape bg-gradient-success shadow-dark text-center border-radius-xl mt-n4 position-absolute">
+                    <i class="material-icons opacity-10">1</i>
+                </div>
+                <div class="text-end pt-1">
+                    <p class="text-sm mb-0 text-capitalize">Moisture 1</p>
+                    <h4 class="mb-0" id="latest_bim">{{ latest_entry.moisture1 }}</h4>
+                </div>
+                <hr class="dark horizontal my-0">
+                <div class="card-footer p-3">
+                </div>
+            </div>
+            <hr class="dark horizontal my-0">
+        </div>
+    </div>
+    <div class="col-xl-6 col-md-6 mb-4">
+        <div class="card">
+            <div class="card-header p-3 pt-2">
+                <div class="icon icon-lg icon-shape bg-gradient-success shadow-primary text-center border-radius-xl mt-n4 position-absolute">
+                    <i class="material-icons opacity-10">2</i>
+                </div>
+                <div class="text-end pt-1">
+                    <p class="text-sm mb-0 text-capitalize">Moisture 2</p>
+                    <h4 class="mb-0" id="latest_temp">{{ latest_entry.moisture2 }}</h4>
+                </div>
+            </div>
+            <hr class="dark horizontal my-0">
+            <div class="card-footer p-3">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xl-6 col-md-6 mb-4">
+        <div class="card">
+            <div class="card-header p-3 pt-2">
+                <div class="icon icon-lg icon-shape bg-gradient-success shadow-success text-center border-radius-xl mt-n4 position-absolute">
+                    <i class="material-icons opacity-10">3</i>
+                </div>
+                <div class="text-end pt-1">
+                    <p class="text-sm mb-0 text-capitalize">Temperature 1</p>
+                    <h4 class="mb-0" id="latest_strick">{{ latest_entry.temperature1 }}</h4>
+                </div>
+            </div>
+            <hr class="dark horizontal my-0">
+            <div class="card-footer p-3">
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-6 col-md-6 mb-4">
+        <div class="card">
+            <div class="card-header p-3 pt-2">
+                <div class="icon icon-lg icon-shape bg-gradient-success shadow-info text-center border-radius-xl mt-n4 position-absolute">
+                    <i class="material-icons opacity-10">4</i>
+                </div>
+                <div class="text-end pt-1">
+                    <p class="text-sm mb-0 text-capitalize">Temperature 2</p>
+                    <h4 class="mb-0" id="latest_bp">{{ latest_entry.moisture2 }}</h4>
+                </div>
+            </div>
+            <hr class="dark horizontal my-0">
+            <div class="card-footer p-3">
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-6 col-md-6 mb-4">
+        <div class="card">
+            <div class="card-header p-3 pt-2">
+                <div class="icon icon-lg icon-shape bg-gradient-success shadow-info text-center border-radius-xl mt-n4 position-absolute">
+                    <i class="material-icons opacity-10">5</i>
+                </div>
+                <div class="text-end pt-1">
+                    <p class="text-sm mb-0 text-capitalize">Humidity</p>
+                    <h4 class="mb-0" id="latest_bp">{{ latest_entry.humidity1 }}</h4>
+                </div>
+            </div>
+            <hr class="dark horizontal my-0">
+            <div class="card-footer p-3">
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-6 col-md-6 mb-4">
+        <div class="card">
+            <div class="card-header p-3 pt-2">
+                <div class="icon icon-lg icon-shape bg-gradient-success shadow-info text-center border-radius-xl mt-n4 position-absolute">
+                    <i class="material-icons opacity-10">6</i>
+                </div>
+                <div class="text-end pt-1">
+                    <p class="text-sm mb-0 text-capitalize">Humidity 2</p>
+                    <h4 class="mb-0" id="latest_bp">{{ latest_entry.humidity2 }}</h4>
+                </div>
+            </div>
+            <hr class="dark horizontal my-0">
+            <div class="card-footer p-3">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container mt-5">
+    <h4 id="health_data">Greenhouse Data</h4>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Timestamp</th>
+                <th>Moisture 2</th>
+                <th>Moisture 1</th>
+                <th>Temperature 1</th>
+                <th>Temperature 2</th>
+                <th>Humidity 1</th>
+                <th>Humidity 2</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for entry in greenhouse_data %}
+                <tr>
+                    <td>{{ entry.timestamp }}</td>
+                    <td>{{ entry.moisture1 }}</td>
+                    <td>{{ entry.moisture2 }}</td>
+                    <td>{{ entry.temperature1 }}</td>
+                    <td>{{ entry.temperature2 }}</td>
+                    <td>{{ entry.humidity1 }}</td>
+                    <td>{{ entry.humidity2 }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table><br><br>
+
+{% endblock %}
