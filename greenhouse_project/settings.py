@@ -77,14 +77,16 @@ WSGI_APPLICATION = 'greenhouse_project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
 DATABASES = {
-    'default': dj_database_url.config(default='postgres://postgres:43eaaF6Cd3-aFfCGcfcD-gef3B3*dBAd@viaduct.proxy.rlwy.net:43597/railway')
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'greenhouseproject',
+        'USER': 'admin',
+        'PASSWORD': 'admin123',
+        'HOST': 'mysql-153418-0.cloudclusters.net',
+        'PORT': '19069',
+
+    }
 }
 
 
